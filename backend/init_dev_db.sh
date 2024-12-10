@@ -8,4 +8,4 @@ fi
 sleep 1
 
 docker rm -f supervive-postgres-dev
-docker run -it -d -e POSTGRES_DB=supervive -e POSTGRES_USER=supervive -e POSTGRES_PASSWORD=supervive -p 127.0.0.1:5435:5432 --name supervive-postgres-dev postgres:10
+docker run -it -d -e POSTGRES_DB=supervive -e POSTGRES_USER=supervive -e POSTGRES_PASSWORD=supervive -p 127.0.0.1:5432:5432 --name supervive-postgres-dev postgres:10
