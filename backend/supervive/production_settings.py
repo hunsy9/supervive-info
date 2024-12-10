@@ -1,4 +1,4 @@
-from backend.supervive.shortcut import get_env
+from supervive.shortcut import get_env
 
 DATABASES = {
     'default': {
