@@ -22,19 +22,26 @@ import { Fragment, useEffect, useState } from "react";
 
 export function HomeTable() {
   const [filter, setFilter] = useState("SQUAD");
-  const { data: initialData } = useSuspenseQuery({
+  const { data: fetchData } = useSuspenseQuery({
     queryKey: ["home-statistics"],
     queryFn: () => getHunters(filter),
+    // queryFn: () => getHunterMocks(filter),
   });
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(fetchData);
   const [sortConfig, setSortConfig] = useState<{
     key: string;
-    ascending: boolean;
+    descending: boolean;
   } | null>(null);
   const queryClient = useQueryClient();
 
-  const sortData = (key: keyof (typeof initialData)[0]) => {
-    const isAscending = sortConfig?.key === key ? !sortConfig.ascending : true;
+  const sortData = (key: keyof (typeof fetchData)[0]) => {
+    const isAscending =
+      sortConfig?.key === key
+        ? !sortConfig.descending
+        : sortConfig?.descending === undefined
+          ? true
+          : !sortConfig.descending;
+    // const isAscending = sortConfig?.key === key;
     const sortedData = [...data].sort((a, b) => {
       if (typeof a[key] === "string" && typeof b[key] === "string") {
         return isAscending
@@ -48,7 +55,7 @@ export function HomeTable() {
     });
 
     setData(sortedData);
-    setSortConfig({ key, ascending: isAscending });
+    setSortConfig({ key, descending: isAscending });
   };
 
   const handleSelectChange = (value: string) => {
@@ -60,8 +67,9 @@ export function HomeTable() {
   }, [filter]);
 
   useEffect(() => {
-    setData(initialData)
-  }, [initialData]);
+    setData(fetchData);
+  }, [fetchData]);
+
   return (
     <Fragment>
       <Select onValueChange={handleSelectChange} defaultValue={filter}>
@@ -77,41 +85,50 @@ export function HomeTable() {
         <TableCaption>A list of your supervives.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead
-              className="w-[100px] cursor-pointer"
-            >
-              헌터
-            </TableHead>
+            <TableHead className="w-[100px] cursor-pointer">헌터</TableHead>
             <TableHead
               className="w-[100px] cursor-pointer"
               onClick={() => sortData("win_rate")}
             >
               1위 비율{" "}
-              {
-                (sortConfig?.ascending ? "↑" : "↓")}
+              {sortConfig?.key === "win_rate"
+                ? sortConfig.descending
+                  ? "↓"
+                  : "↑"
+                : "↑"}
             </TableHead>
             <TableHead
               className="w-[100px] cursor-pointer"
               onClick={() => sortData("pick_rate")}
             >
               픽률{" "}
-              {(sortConfig?.ascending ? "↑" : "↓")}
+              {sortConfig?.key === "pick_rate"
+                ? sortConfig.descending
+                  ? "↓"
+                  : "↑"
+                : "↑"}
             </TableHead>
             <TableHead
               className="w-[100px] text-left cursor-pointer"
               onClick={() => sortData("average_rank")}
             >
               평균 등수{" "}
-              {
-                (sortConfig?.ascending ? "↑" : "↓")}
+              {sortConfig?.key === "average_rank"
+                ? sortConfig.descending
+                  ? "↓"
+                  : "↑"
+                : "↑"}
             </TableHead>
             <TableHead
               className="w-[100px] text-left cursor-pointer"
               onClick={() => sortData("average_kd_rate")}
             >
               평균 K/D{" "}
-              {
-                (sortConfig?.ascending ? "↑" : "↓")}
+              {sortConfig?.key === "average_kd_rate"
+                ? sortConfig.descending
+                  ? "↑"
+                  : "↓"
+                : "↑"}
             </TableHead>
           </TableRow>
         </TableHeader>
