@@ -1,0 +1,130 @@
+[
+    {
+        "hunter_name": "오쓰",
+        "win_rate": 13.3,
+        "pick_rate": 4.5,
+        "average_rank": 5.27,
+        "average_kd_rate": 0.7,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/oath/STYLE_1.png"
+    },
+    {
+        "hunter_name": "제프",
+        "win_rate": 12.3,
+        "pick_rate": 6.2,
+        "average_rank": 5.32,
+        "average_kd_rate": 0.6,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/zeph/STYLE_1.png"
+    },
+    {
+        "hunter_name": "브롤",
+        "win_rate": 12.1,
+        "pick_rate": 6.6,
+        "average_rank": 5.36,
+        "average_kd_rate": 1.3,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/brall/STYLE_1.png"
+    },
+    {
+        "hunter_name": "쥴",
+        "win_rate": 10.7,
+        "pick_rate": 8.1,
+        "average_rank": 5.45,
+        "average_kd_rate": 1.1,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/joule/STYLE_1.png"
+    },
+    {
+        "hunter_name": "비숍",
+        "win_rate": 10.6,
+        "pick_rate": 4.2,
+        "average_rank": 5.39,
+        "average_kd_rate": 0.8,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/bishop/STYLE_1.png"
+    },
+    {
+        "hunter_name": "쉬브",
+        "win_rate": 10.3,
+        "pick_rate": 6.0,
+        "average_rank": 5.5,
+        "average_kd_rate": 1.2,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/shiv/STYLE_1.png"
+    },
+    {
+        "hunter_name": "킹핀",
+        "win_rate": 10.2,
+        "pick_rate": 10.2,
+        "average_rank": 5.52,
+        "average_kd_rate": 1.1,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/kingpin/STYLE_1.png"
+    },
+    {
+        "hunter_name": "허드슨",
+        "win_rate": 10.2,
+        "pick_rate": 8.2,
+        "average_rank": 5.53,
+        "average_kd_rate": 1.3,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/hudson/STYLE_1.png"
+    },
+    {
+        "hunter_name": "미쓰",
+        "win_rate": 9.8,
+        "pick_rate": 5.3,
+        "average_rank": 5.56,
+        "average_kd_rate": 0.9,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/myth/STYLE_1.png"
+    },
+    {
+        "hunter_name": "진",
+        "win_rate": 9.3,
+        "pick_rate": 4.4,
+        "average_rank": 5.48,
+        "average_kd_rate": 1.1,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/jin/STYLE_1.png"
+    },
+    {
+        "hunter_name": "셀레스트",
+        "win_rate": 9.0,
+        "pick_rate": 5.9,
+        "average_rank": 5.47,
+        "average_kd_rate": 0.8,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/celeste/STYLE_1.png"
+    },
+    {
+        "hunter_name": "펠릭스",
+        "win_rate": 8.8,
+        "pick_rate": 6.1,
+        "average_rank": 5.6,
+        "average_kd_rate": 0.7,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/felix/STYLE_1.png"
+    },
+    {
+        "hunter_name": "엘루나",
+        "win_rate": 8.5,
+        "pick_rate": 7.7,
+        "average_rank": 5.53,
+        "average_kd_rate": 0.7,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/elluna/STYLE_1.png"
+    },
+    {
+        "hunter_name": "슈라이크",
+        "win_rate": 8.5,
+        "pick_rate": 7.0,
+        "average_rank": 5.66,
+        "average_kd_rate": 0.8,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/shrike/STYLE_1.png"
+    },
+    {
+        "hunter_name": "고스트",
+        "win_rate": 8.4,
+        "pick_rate": 5.6,
+        "average_rank": 5.66,
+        "average_kd_rate": 0.8,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/ghost/STYLE_1.png"
+    },
+    {
+        "hunter_name": "보이드",
+        "win_rate": 8.2,
+        "pick_rate": 4.0,
+        "average_rank": 5.65,
+        "average_kd_rate": 0.7,
+        "hunter_avatar": "https://assets.supervive.app/35e3ae64-6de9-48d9-b978-6a9dcddd690b/assets/hunters/void/STYLE_1.png"
+    }
+]
