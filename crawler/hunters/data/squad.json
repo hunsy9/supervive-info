@@ -9,7 +9,7 @@
     },
     {
         "hunter_name": "제프",
-        "win_rate": 12.3,
+        "win_rate": 12.4,
         "pick_rate": 6.2,
         "average_rank": 5.32,
         "average_kd_rate": 0.6,
@@ -41,7 +41,7 @@
     },
     {
         "hunter_name": "쉬브",
-        "win_rate": 10.3,
+        "win_rate": 10.2,
         "pick_rate": 6.0,
         "average_rank": 5.5,
         "average_kd_rate": 1.2,
@@ -57,7 +57,7 @@
     },
     {
         "hunter_name": "허드슨",
-        "win_rate": 10.2,
+        "win_rate": 10.1,
         "pick_rate": 8.2,
         "average_rank": 5.53,
         "average_kd_rate": 1.3,
@@ -105,7 +105,7 @@
     },
     {
         "hunter_name": "슈라이크",
-        "win_rate": 8.5,
+        "win_rate": 8.4,
         "pick_rate": 7.0,
         "average_rank": 5.66,
         "average_kd_rate": 0.8,

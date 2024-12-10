@@ -12,6 +12,7 @@ class MetaTagFilter(BaseFilterBackend):
         meta_tag = request.query_params.get('meta_tag')
         if meta_tag:
             return queryset.filter(meta_tag=meta_tag)
+
         return queryset
 
 

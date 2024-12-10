@@ -13,7 +13,7 @@ class HunterStatistics(models.Model):
     win_rate = models.FloatField()
     # top_five_ratio = models.FloatField()
     pick_rate = models.FloatField()
-    average_rank = models.IntegerField()
+    average_rank = models.FloatField()
     # total_pick_number = models.IntegerField()
     # total_match = models.IntegerField()
     average_kd_rate = models.FloatField()

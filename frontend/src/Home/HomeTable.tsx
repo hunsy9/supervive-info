@@ -18,7 +18,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { HunterQueryData } from "../api/types";
 import { Fragment, useEffect, useState } from "react";
 
 export function HomeTable() {
@@ -60,6 +59,9 @@ export function HomeTable() {
     queryClient.invalidateQueries({ queryKey: ["home-statistics"] });
   }, [filter]);
 
+  useEffect(() => {
+    setData(initialData)
+  }, [initialData]);
   return (
     <Fragment>
       <Select onValueChange={handleSelectChange} defaultValue={filter}>
@@ -77,43 +79,39 @@ export function HomeTable() {
           <TableRow>
             <TableHead
               className="w-[100px] cursor-pointer"
-              onClick={() => sortData("hunter_name")}
             >
-              헌터{" "}
-              {sortConfig?.key === "hunter_name" &&
-                (sortConfig.ascending ? "↑" : "↓")}
+              헌터
             </TableHead>
             <TableHead
               className="w-[100px] cursor-pointer"
               onClick={() => sortData("win_rate")}
             >
               1위 비율{" "}
-              {sortConfig?.key === "win_rate" &&
-                (sortConfig.ascending ? "↑" : "↓")}
+              {
+                (sortConfig?.ascending ? "↑" : "↓")}
             </TableHead>
             <TableHead
               className="w-[100px] cursor-pointer"
               onClick={() => sortData("pick_rate")}
             >
               픽률{" "}
-              {sortConfig?.key === "pick_rate" &&
-                (sortConfig.ascending ? "↑" : "↓")}
+              {(sortConfig?.ascending ? "↑" : "↓")}
             </TableHead>
             <TableHead
               className="w-[100px] text-left cursor-pointer"
               onClick={() => sortData("average_rank")}
             >
               평균 등수{" "}
-              {sortConfig?.key === "average_rank" &&
-                (sortConfig.ascending ? "↑" : "↓")}
+              {
+                (sortConfig?.ascending ? "↑" : "↓")}
             </TableHead>
             <TableHead
               className="w-[100px] text-left cursor-pointer"
               onClick={() => sortData("average_kd_rate")}
             >
               평균 K/D{" "}
-              {sortConfig?.key === "average_kd_rate" &&
-                (sortConfig.ascending ? "↑" : "↓")}
+              {
+                (sortConfig?.ascending ? "↑" : "↓")}
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -131,7 +129,7 @@ export function HomeTable() {
               </TableCell>
               <TableCell>{hunter.win_rate}%</TableCell>
               <TableCell>{hunter.pick_rate}%</TableCell>
-              <TableCell>{hunter.average_rank}</TableCell>
+              <TableCell>{hunter.average_rank}위</TableCell>
               <TableCell>{hunter.average_kd_rate}</TableCell>
             </TableRow>
           ))}

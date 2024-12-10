@@ -39,8 +39,8 @@ def send_hunter_data():
     # URL 설정
     # squad_url = "http://127.0.0.1:8000/hunters/statistics/squad"
     # duo_url = "http://127.0.0.1:8000/hunters/statistics/duo"
-    squad_url = 'http://127.0.0.1:8000/api/hunter_statistics/crawler?meta_tag="SQUAD"'
-    duo_url = 'http://127.0.0.1:8000/api/hunter_statistics/crawler?meta_tag="DUO"'
+    squad_url = 'http://127.0.0.1:8000/api/hunter_statistics/crawler?meta_tag=SQUAD'
+    duo_url = 'http://127.0.0.1:8000/api/hunter_statistics/crawler?meta_tag=DUO'
 
     # SQUAD 데이터 전송
     if os.path.exists(squad_file):
@@ -77,5 +77,5 @@ def start_scheduler():
         update_hunter_data()  # 데이터 크롤링 및 파일 저장
         send_hunter_data()    # 저장된 데이터 서버로 전송
 
-    scheduler.add_job(update_and_send, 'interval', minutes=1)
+    scheduler.add_job(update_and_send, 'interval', minutes=10)
     scheduler.start()
