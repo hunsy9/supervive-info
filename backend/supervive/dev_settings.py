@@ -13,3 +13,5 @@ DATABASES = {
         'PASSWORD': get_env('POSTGRES_PASSWORD', 'supervive')
     }
 }
+
+DEBUG = True
