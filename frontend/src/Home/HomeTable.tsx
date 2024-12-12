@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "../components/ui/table";
 
 import {
   Select,
@@ -16,7 +16,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../components/ui/select";
+
+import { Progress } from "../components/ui/progress"
 
 import { Fragment, useEffect, useState } from "react";
 
@@ -25,7 +27,6 @@ export function HomeTable() {
   const { data: fetchData } = useSuspenseQuery({
     queryKey: ["home-statistics"],
     queryFn: () => getHunters(filter),
-    // queryFn: () => getHunterMocks(filter),
   });
   const [data, setData] = useState(fetchData);
   const [sortConfig, setSortConfig] = useState<{
@@ -85,7 +86,16 @@ export function HomeTable() {
         <TableCaption>A list of your supervives.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px] cursor-pointer">헌터</TableHead>
+            <TableHead
+                className="w-[100px] cursor-pointer"
+            >
+              순위
+            </TableHead>
+            <TableHead
+              className="w-[100px] cursor-pointer"
+            >
+              헌터 이름
+            </TableHead>
             <TableHead
               className="w-[100px] cursor-pointer"
               onClick={() => sortData("win_rate")}
@@ -134,18 +144,28 @@ export function HomeTable() {
         </TableHeader>
         <TableBody>
           {data.map((hunter, idx) => (
-            // <TableRow key={hunter.hunter_name}>
             <TableRow key={idx}>
+              <TableCell className={"w-[6%]"}>
+                {idx+1}위
+              </TableCell>
               <TableCell className={"flex items-center gap-[10px]"}>
                 <img
-                  className={"w-[25px]"}
+                  className={"w-[40px]"}
                   alt={"hunter image"}
                   src={hunter.hunter_avatar}
                 />
                 {hunter.hunter_name}
               </TableCell>
-              <TableCell>{hunter.win_rate}%</TableCell>
-              <TableCell>{hunter.pick_rate}%</TableCell>
+              <TableCell>
+                <div className={"flex items-center justify-around"}>
+                  <Progress className={"w-[60%]"} value={hunter.win_rate * 6}/>{hunter.win_rate}%
+                </div>
+              </TableCell>
+              <TableCell>
+                <div className={"flex items-center justify-around"}>
+                  <Progress className={"w-[60%]"} value={hunter.pick_rate * 6}/>{hunter.pick_rate}%
+                </div>
+              </TableCell>
               <TableCell>{hunter.average_rank}위</TableCell>
               <TableCell>{hunter.average_kd_rate}</TableCell>
             </TableRow>

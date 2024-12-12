@@ -1,4 +1,4 @@
-import { BasicLayout } from "@/layouts/BasicLayout";
+import { BasicLayout } from "../layouts/BasicLayout";
 import { Suspense } from "react";
 import { HomeTable } from "./HomeTable";
 

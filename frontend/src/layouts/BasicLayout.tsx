@@ -6,8 +6,7 @@ export function BasicLayout({ children }: { children: ReactNode }) {
     <div>
       <header className={"h-[70px] mb-[70px]"}>
           <div>
-              {/*<img src={"../../assets/supervive_logo.png"}/>*/}
-              <img src={logo} className={"w-[180px]"}/>
+              <img src={logo} className={"ml-11 mt-2 w-[150px]"}/>
           </div>
       </header>
       <div className={"pl-[200px] pr-[200px]"}>{children}</div>
