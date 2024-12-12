@@ -18,7 +18,7 @@ import {
   SelectValue,
 } from "../components/ui/select";
 
-import { Progress } from "../components/ui/progress"
+import { Progress } from "../components/ui/progress";
 
 import { Fragment, useEffect, useState } from "react";
 
@@ -42,7 +42,6 @@ export function HomeTable() {
         : sortConfig?.descending === undefined
           ? true
           : !sortConfig.descending;
-    // const isAscending = sortConfig?.key === key;
     const sortedData = [...data].sort((a, b) => {
       if (typeof a[key] === "string" && typeof b[key] === "string") {
         return isAscending
@@ -86,14 +85,8 @@ export function HomeTable() {
         <TableCaption>A list of your supervives.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead
-                className="w-[100px] cursor-pointer"
-            >
-              순위
-            </TableHead>
-            <TableHead
-              className="w-[100px] cursor-pointer"
-            >
+            <TableHead className="w-[100px] cursor-pointer">순위</TableHead>
+            <TableHead className="w-[100px] cursor-pointer">
               헌터 이름
             </TableHead>
             <TableHead
@@ -103,8 +96,8 @@ export function HomeTable() {
               1위 비율{" "}
               {sortConfig?.key === "win_rate"
                 ? sortConfig.descending
-                  ? "↓"
-                  : "↑"
+                  ? "↑"
+                  : "↓"
                 : "↑"}
             </TableHead>
             <TableHead
@@ -114,8 +107,8 @@ export function HomeTable() {
               픽률{" "}
               {sortConfig?.key === "pick_rate"
                 ? sortConfig.descending
-                  ? "↓"
-                  : "↑"
+                  ? "↑"
+                  : "↓"
                 : "↑"}
             </TableHead>
             <TableHead
@@ -125,8 +118,8 @@ export function HomeTable() {
               평균 등수{" "}
               {sortConfig?.key === "average_rank"
                 ? sortConfig.descending
-                  ? "↓"
-                  : "↑"
+                  ? "↑"
+                  : "↓"
                 : "↑"}
             </TableHead>
             <TableHead
@@ -145,9 +138,7 @@ export function HomeTable() {
         <TableBody>
           {data.map((hunter, idx) => (
             <TableRow key={idx}>
-              <TableCell className={"w-[6%]"}>
-                {idx+1}위
-              </TableCell>
+              <TableCell className={"w-[6%]"}>{idx + 1}위</TableCell>
               <TableCell className={"flex items-center gap-[10px]"}>
                 <img
                   className={"w-[40px]"}
@@ -158,12 +149,17 @@ export function HomeTable() {
               </TableCell>
               <TableCell>
                 <div className={"flex items-center justify-around"}>
-                  <Progress className={"w-[60%]"} value={hunter.win_rate * 6}/>{hunter.win_rate}%
+                  <Progress className={"w-[60%]"} value={hunter.win_rate * 6} />
+                  {hunter.win_rate}%
                 </div>
               </TableCell>
               <TableCell>
                 <div className={"flex items-center justify-around"}>
-                  <Progress className={"w-[60%]"} value={hunter.pick_rate * 6}/>{hunter.pick_rate}%
+                  <Progress
+                    className={"w-[60%]"}
+                    value={hunter.pick_rate * 6}
+                  />
+                  {hunter.pick_rate}%
                 </div>
               </TableCell>
               <TableCell>{hunter.average_rank}위</TableCell>
