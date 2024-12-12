@@ -1,0 +1,19 @@
+services:
+  supervive-be:
+    build:
+      context: .
+    volumes:
+      - ./deploy/log/:/app/deploy/log
+    restart: always
+    ports:
+      - "8000:8000"
+
+  supervive-postgresql:
+    image: postgres:13-alpine
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5437:5432"

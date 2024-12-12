@@ -8,5 +8,5 @@ router.register(r'hunter_statistics', HunterStatisticViewSet, basename='hunter_s
 
 urlpatterns = [
     path('', include(router.urls)),
-    path("hunter_statistics/crawler", UpdateHunterStatisticsForCrawler.as_view(), name="hunter_statistic_update_api"),
+    path(r'crawler/hunter_statistics', UpdateHunterStatisticsForCrawler.as_view(), name="hunter_statistic_update_api"),
 ]

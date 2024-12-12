@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from .shortcut import get_env
 import os
 
+DEBUG = False
+
 production_env = get_env("SPV_ENV", "dev") == "production"
 if production_env:
     from .production_settings import *
@@ -61,7 +63,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-# APPEND_SLASH = False
 ROOT_URLCONF = 'supervive.urls'
 
 TEMPLATES = [

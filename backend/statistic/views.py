@@ -23,6 +23,7 @@ class HunterStatisticViewSet(viewsets.ModelViewSet):
 
 
 class UpdateHunterStatisticsForCrawler(APIView):
+    http_method_names = ['post']
 
     def post(self, request):
         meta_tag = request.query_params.get('meta_tag')
