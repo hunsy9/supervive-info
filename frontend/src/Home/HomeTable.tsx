@@ -19,17 +19,31 @@ import {
 import { Progress } from "../components/ui/progress";
 import { Fragment, useEffect, useState } from "react";
 
+type Hunter = {
+  hunter_avatar: string;
+  hunter_name: string;
+  win_rate: number;
+  pick_rate: number;
+  average_rank: number;
+  average_kd_rate: number;
+};
+
+type SortConfig = {
+  key: keyof Hunter;
+  descending: boolean;
+} | null;
+
 export function HomeTable() {
-  const [filter, setFilter] = useState("SQUAD");
-  const { data: fetchData } = useSuspenseQuery({
+  const [filter, setFilter] = useState<string>("SQUAD");
+  const { data: fetchData } = useSuspenseQuery<Hunter[]>({
     queryKey: ["home-statistics"],
     queryFn: () => getHunters(filter),
   });
-  const [data, setData] = useState(fetchData);
-  const [sortConfig, setSortConfig] = useState(null);
+  const [data, setData] = useState<Hunter[]>(fetchData);
+  const [sortConfig, setSortConfig] = useState<SortConfig>(null);
   const queryClient = useQueryClient();
 
-  const sortData = (key) => {
+  const sortData = (key: keyof Hunter) => {
     const isDescending =
       sortConfig?.key === key ? !sortConfig.descending : false;
     const sortedData = [...data].sort((a, b) => {
@@ -48,7 +62,7 @@ export function HomeTable() {
     setSortConfig({ key, descending: isDescending });
   };
 
-  const handleSelectChange = (value) => setFilter(value);
+  const handleSelectChange = (value: string) => setFilter(value);
 
   useEffect(() => {
     queryClient.invalidateQueries({ queryKey: ["home-statistics"] });
@@ -56,14 +70,14 @@ export function HomeTable() {
 
   useEffect(() => setData(fetchData), [fetchData]);
 
-  const renderSortIndicator = (key) => {
+  const renderSortIndicator = (key: keyof Hunter) => {
     if (sortConfig?.key === key) {
       return sortConfig.descending ? "↓" : "↑";
     }
     return "↑";
   };
 
-  const renderProgress = (value, multiplier) => (
+  const renderProgress = (value: number, multiplier: number) => (
     <div className="flex items-center justify-around">
       <Progress className="w-[60%]" value={value * multiplier} />
       {value}%
